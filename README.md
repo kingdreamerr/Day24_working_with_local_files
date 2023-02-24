@@ -23,9 +23,6 @@ with open('file',mode='w') as file:
 > Using the open function to read and update files... Here it is used to automate invitation letters to be sent to friends.
 
 
-#### Preview:
-
-![letters](./letters.png)
 
 ## How to run this on your device
 
