@@ -1,12 +1,16 @@
-with open('./input/Names/invited_names.txt') as names:
-    list_of_names = names.readlines()
+with open('./Input/Names/invited_names.txt') as names:
+    names_of_people = names.readlines()
 
-placeholder = '[name]'
 
-with open('./input/Letters/starting_letter.docx') as letters:
-    letter = letters.read()
-    print(letters)
-    for person in list_of_names:
+with open('./Input/Letters/starting_letter.docx') as letters:
+    heading = letters.readline()
+    letter = letters.readlines()
+    for person in names_of_people:
         new_name = person.strip('\n')
-        new_letter = letter.replace(placeholder,new_name)
-        # print(new_letter)
+        new_location = f"./Output/ReadyToSend/letter_for{new_name}.docx"
+        #
+        with open(new_location, 'a') as file:
+            new_heading = heading.replace(heading, f'Dear {new_name}')
+            file.write(new_heading)
+            for line in letter:
+                file.write(line)
